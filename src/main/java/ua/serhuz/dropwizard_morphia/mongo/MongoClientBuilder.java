@@ -30,15 +30,32 @@ public class MongoClientBuilder {
     private final Environment environment;
     private MongoClientConfiguration configuration;
 
+    /**
+     * Instantiates {@code MongoClientBuilder}
+     *
+     * @param environment Application environment
+     */
     public MongoClientBuilder(Environment environment) {
         this.environment = environment;
     }
 
+    /**
+     * Sets {@link MongoClientConfiguration} for this instance.
+     *
+     * @param configuration {@link MongoClientConfiguration} instance
+     * @return this object
+     */
     public MongoClientBuilder using(MongoClientConfiguration configuration) {
         this.configuration = configuration;
         return this;
     }
 
+    /**
+     * Builds {@link MongoClient} instance and registers {@link MongoHealthCheck} in application environment.
+     *
+     * @return {@link MongoClient} instance
+     * @throws UnknownHostException thrown if connection to Mongo could not be determined
+     */
     public MongoClient build() throws UnknownHostException {
         List<MongoConnection> connections = configuration.getConnections();
         List<ServerAddress> addrs = new LinkedList<ServerAddress>();
