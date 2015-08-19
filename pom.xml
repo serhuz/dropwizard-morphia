@@ -6,7 +6,7 @@
 
     <groupId>ua.serhuz</groupId>
     <artifactId>dropwizard-morphia</artifactId>
-    <version>0.8.2-1</version>
+    <version>0.8.2-2-SNAPSHOT</version>
     <name>dropwizard-morphia</name>
 
     <licenses>
@@ -82,11 +82,6 @@
                         </manifest>
                     </archive>
                 </configuration>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
