@@ -35,11 +35,25 @@ public class MorphiaBuilder {
         this.environment = environment;
     }
 
+    /**
+     * Sets {@link MorphiaConfiguration} for this instance.
+     *
+     * @param morphiaConfiguration {@link MorphiaConfiguration} instance
+     * @return this object
+     */
     public MorphiaBuilder using(MorphiaConfiguration morphiaConfiguration) {
         this.morphiaConfiguration = morphiaConfiguration;
         return this;
     }
 
+    /**
+     * Instantiates {@link Morphia} and maps entity classes in provided packages.
+     * Also calls {@link MongoClientBuilder#build()} which constructs a {@code mongoClient}
+     * and adds a health check to application environment.
+     *
+     * @return {@link Morphia} instance
+     * @throws UnknownHostException thrown if provided connection to MongoDB cannot be determined
+     */
     public Morphia build() throws UnknownHostException {
         mongoClient = new MongoClientBuilder(environment)
                 .using(morphiaConfiguration.getMongoClientConfiguration())

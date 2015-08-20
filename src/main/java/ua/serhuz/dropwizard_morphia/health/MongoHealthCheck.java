@@ -20,18 +20,26 @@ import com.codahale.metrics.health.HealthCheck;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoException;
 
+/**
+ * MongoDB connection health check.
+ *
+ * Uses provided {@code mongoClient} to test connection.
+ */
 @SuppressWarnings("unused")
 public class MongoHealthCheck extends HealthCheck {
 
     private final MongoClient mongoClient;
 
+    /**
+     * Default constructor
+     * @param mongoClient configured {@link MongoClient} instance
+     */
     public MongoHealthCheck(MongoClient mongoClient) {
         this.mongoClient = mongoClient;
     }
 
     @Override
     protected Result check() throws Exception {
-
         try {
             mongoClient.getDB("test").getStats();
         } catch (MongoException ex) {
