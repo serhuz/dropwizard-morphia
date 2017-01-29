@@ -31,6 +31,7 @@ public abstract class MorphiaBundle<T extends Configuration> implements Configur
 
     private static final String DEFAULT_NAME = "mongo";
     private final Set<Class> entitySet;
+    private Datastore datastore;
 
     protected MorphiaBundle(Class<?> entity, Class<?>... entities) {
         entitySet = new HashSet<>();
@@ -45,12 +46,16 @@ public abstract class MorphiaBundle<T extends Configuration> implements Configur
 
     @Override
     public void run(T configuration, Environment environment) throws Exception {
-        final Datastore datastore = getMongo(configuration)
+        datastore = getMongo(configuration)
                 .using(environment)
                 .with(entitySet)
                 .buildDatastore();
 
         environment.healthChecks().register(getName(), new MongoHealthCheck(datastore));
+    }
+
+    public Datastore getDatastore() {
+        return datastore;
     }
 
     protected String getName() {
