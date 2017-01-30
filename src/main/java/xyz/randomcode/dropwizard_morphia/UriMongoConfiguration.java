@@ -32,6 +32,7 @@ public class UriMongoConfiguration extends AbstractMongoConfiguration {
 
     @Override
     public MongoClient buildClient() {
+        setDbName(uri.getDatabase());
         final MongoClient mongoClient = new MongoClient(uri);
 
         environment.lifecycle().manage(

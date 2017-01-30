@@ -20,7 +20,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.mongodb.MongoClient;
 import io.dropwizard.setup.Environment;
-import org.hibernate.validator.constraints.NotEmpty;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
 import org.mongodb.morphia.ValidationExtension;
@@ -32,7 +31,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 public abstract class AbstractMongoConfiguration implements MongoConfiguration {
 
-    @NotEmpty
     protected String dbName;
     protected boolean storeNulls = false;
     protected boolean storeEmpties = false;
@@ -113,7 +111,6 @@ public abstract class AbstractMongoConfiguration implements MongoConfiguration {
             new ValidationExtension(morphia);
         }
 
-        return morphia.createDatastore(client, getDbName());
+        return morphia.createDatastore(client, checkNotNull(getDbName()));
     }
-
 }
