@@ -15,6 +15,13 @@
         </developer>
     </developers>
 
+    <distributionManagement>
+        <repository>
+            <id>bintray-serhuz-maven</id>
+            <name>serhuz-maven</name>
+            <url>https://api.bintray.com/maven/serhuz/maven/dropwizard-morphia/;publish=1</url>
+        </repository>
+    </distributionManagement>
 
     <licenses>
         <license>
