@@ -77,6 +77,12 @@ private MorphiaBundle<ExampleConfiguration> morphiaBundle =
                 return configuration.getMongo();
             }
         };
+        
+@Override
+public void initialize(Bootstrap<ExampleConfiguration> bootstrap) {
+    bootstrap.addBundle(morphiaBundle);
+}
+
 
 @Override
 public void run(ExampleConfiguration configuration, Environment environment) throws Exception {
