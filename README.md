@@ -84,5 +84,15 @@ public void run(ExampleConfiguration configuration, Environment environment) thr
 }
 ```
 
+## Configuration
+Minimal configuration requires the following
+```yaml
+mongo:
+  type: uriConfig
+  uri: ${MONGODB_URI}
+```
+
+Currently the only available type is `uriConfig`. A `mongodb://` uri is used to connect to Mongo. `dbName` can be retrived from uri, if it is specified. Otherwise you'll have to set dbName inside mongo explicitly.
+ 
 ## Example
 Example app with a bit of Morphia usage is available [here](https://github.com/serhuz/dropwizard-morhia-example)
