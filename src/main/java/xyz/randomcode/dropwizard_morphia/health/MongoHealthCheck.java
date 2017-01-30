@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package ua.serhuz.dropwizard_morphia.health;
+package xyz.randomcode.dropwizard_morphia.health;
 
 import com.codahale.metrics.health.HealthCheck;
 import com.mongodb.CommandResult;

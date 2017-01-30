@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package ua.serhuz.dropwizard_morphia;
+package xyz.randomcode.dropwizard_morphia;
 
 import com.codahale.metrics.health.HealthCheckRegistry;
 import com.mongodb.MongoClientURI;
@@ -25,9 +25,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import ua.serhuz.dropwizard_morphia.dummy.DummyConfiguration;
-import ua.serhuz.dropwizard_morphia.dummy.DummyEntity;
-import ua.serhuz.dropwizard_morphia.health.MongoHealthCheck;
+import xyz.randomcode.dropwizard_morphia.dummy.DummyConfiguration;
+import xyz.randomcode.dropwizard_morphia.dummy.DummyEntity;
+import xyz.randomcode.dropwizard_morphia.health.MongoHealthCheck;
 
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.eq;

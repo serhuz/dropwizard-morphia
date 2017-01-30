@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package ua.serhuz.dropwizard_morphia;
+package xyz.randomcode.dropwizard_morphia;
 
 import io.dropwizard.Configuration;
 import io.dropwizard.ConfiguredBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import org.mongodb.morphia.Datastore;
-import ua.serhuz.dropwizard_morphia.health.MongoHealthCheck;
+import xyz.randomcode.dropwizard_morphia.health.MongoHealthCheck;
 
 import java.util.Arrays;
 import java.util.HashSet;

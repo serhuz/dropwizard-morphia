@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package ua.serhuz.dropwizard_morphia.dummy;
+package xyz.randomcode.dropwizard_morphia.dummy;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;
-import ua.serhuz.dropwizard_morphia.UriMongoConfiguration;
+import xyz.randomcode.dropwizard_morphia.UriMongoConfiguration;
 
 public class DummyConfiguration extends Configuration {
 

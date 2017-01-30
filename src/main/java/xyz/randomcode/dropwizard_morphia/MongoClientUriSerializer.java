@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package ua.serhuz.dropwizard_morphia;
+package xyz.randomcode.dropwizard_morphia;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package ua.serhuz.dropwizard_morphia.health;
+package xyz.randomcode.dropwizard_morphia.health;
 
 import com.codahale.metrics.health.HealthCheck;
 import com.mongodb.MongoClient;
@@ -24,8 +24,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
-import ua.serhuz.dropwizard_morphia.BaseMongoTest;
-import ua.serhuz.dropwizard_morphia.dummy.DummyEntity;
+import xyz.randomcode.dropwizard_morphia.BaseMongoTest;
+import xyz.randomcode.dropwizard_morphia.dummy.DummyEntity;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

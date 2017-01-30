@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package ua.serhuz.dropwizard_morphia.dummy;
+package xyz.randomcode.dropwizard_morphia.dummy;
 
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
