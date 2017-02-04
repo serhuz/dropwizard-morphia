@@ -24,14 +24,17 @@ import java.io.InputStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+
 public class UriMongoConfigurationTest {
 
     private static ObjectMapper mapper;
+
 
     @BeforeClass
     public static void setUpAll() throws Exception {
         mapper = new ObjectMapper();
     }
+
 
     @Test
     public void deserialize() throws Exception {

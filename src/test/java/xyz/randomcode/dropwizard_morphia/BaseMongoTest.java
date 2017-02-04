@@ -16,8 +16,6 @@
 
 package xyz.randomcode.dropwizard_morphia;
 
-import com.mongodb.MongoClient;
-import com.mongodb.MongoClientURI;
 import de.flapdoodle.embed.mongo.MongodExecutable;
 import de.flapdoodle.embed.mongo.MongodProcess;
 import de.flapdoodle.embed.mongo.MongodStarter;
@@ -29,6 +27,7 @@ import de.flapdoodle.embed.process.runtime.Network;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
+
 public class BaseMongoTest {
 
     private static final MongodStarter STARTER = MongodStarter.getDefaultInstance();
@@ -36,6 +35,7 @@ public class BaseMongoTest {
     protected static int port;
 
     private static MongodProcess process;
+
 
     @BeforeClass
     public static void configureMongo() throws Exception {
@@ -49,6 +49,7 @@ public class BaseMongoTest {
         MongodExecutable executable = STARTER.prepare(config);
         process = executable.start();
     }
+
 
     @AfterClass
     public static void stopMongo() throws Exception {

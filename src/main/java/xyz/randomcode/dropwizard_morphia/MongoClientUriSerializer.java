@@ -24,6 +24,7 @@ import com.mongodb.MongoClientURI;
 
 import java.io.IOException;
 
+
 public class MongoClientUriSerializer extends JsonSerializer<MongoClientURI> {
 
     @Override

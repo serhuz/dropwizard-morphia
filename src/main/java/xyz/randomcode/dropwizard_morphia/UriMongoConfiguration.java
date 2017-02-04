@@ -16,7 +16,6 @@
 
 package xyz.randomcode.dropwizard_morphia;
 
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -24,11 +23,13 @@ import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import io.dropwizard.lifecycle.Managed;
 
+
 @JsonTypeName("uriConfig")
 public class UriMongoConfiguration extends AbstractMongoConfiguration {
 
     @JsonSerialize(using = MongoClientUriSerializer.class)
     private MongoClientURI uri;
+
 
     @Override
     public MongoClient buildClient() {
@@ -42,6 +43,7 @@ public class UriMongoConfiguration extends AbstractMongoConfiguration {
                     @Override
                     public void start() throws Exception {
                     }
+
 
                     @Override
                     public void stop() throws Exception {

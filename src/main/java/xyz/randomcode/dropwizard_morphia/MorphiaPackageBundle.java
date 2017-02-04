@@ -20,26 +20,22 @@ import io.dropwizard.Configuration;
 import io.dropwizard.setup.Environment;
 import org.mongodb.morphia.Morphia;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+
+public abstract class MorphiaPackageBundle<T extends Configuration> extends BaseMorphiaBundle<T> {
+
+    private final String packageName;
+    private final boolean ignoreInvalidClasses;
 
 
-public abstract class MorphiaBundle<T extends Configuration> extends BaseMorphiaBundle<T> {
-
-    private final Set<Class> entitySet;
-
-
-    protected MorphiaBundle(Class<?> entity, Class<?>... entities) {
-        entitySet = new HashSet<>();
-        entitySet.add(entity);
-        entitySet.addAll(Arrays.asList(entities));
+    public MorphiaPackageBundle(String packageName, boolean ignoreInvalidClasses) {
+        this.packageName = packageName;
+        this.ignoreInvalidClasses = ignoreInvalidClasses;
     }
 
 
     @Override
     public void run(T configuration, Environment environment) throws Exception {
-        morphia = new Morphia().map(entitySet);
+        morphia = new Morphia().mapPackage(packageName, ignoreInvalidClasses);
 
         datastore = getMongo(configuration)
                 .using(environment)

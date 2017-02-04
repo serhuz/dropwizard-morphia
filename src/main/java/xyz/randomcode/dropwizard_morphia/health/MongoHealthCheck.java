@@ -21,13 +21,16 @@ import com.mongodb.CommandResult;
 import com.mongodb.MongoException;
 import org.mongodb.morphia.Datastore;
 
+
 public class MongoHealthCheck extends HealthCheck {
 
     private final Datastore datastore;
 
+
     public MongoHealthCheck(Datastore datastore) {
         this.datastore = datastore;
     }
+
 
     @Override
     protected Result check() throws Exception {

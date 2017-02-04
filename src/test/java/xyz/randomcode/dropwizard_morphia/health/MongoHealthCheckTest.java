@@ -29,9 +29,11 @@ import xyz.randomcode.dropwizard_morphia.dummy.DummyEntity;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+
 public class MongoHealthCheckTest extends BaseMongoTest {
 
     private static Datastore datastore;
+
 
     @BeforeClass
     public static void setUpAll() throws Exception {
@@ -39,10 +41,12 @@ public class MongoHealthCheckTest extends BaseMongoTest {
         datastore = new Morphia().map(DummyEntity.class).createDatastore(mongoClient, "test");
     }
 
+
     @AfterClass
     public static void tearDownAll() throws Exception {
         datastore.getMongo().close();
     }
+
 
     @Test
     public void checkHealthyResult() throws Exception {

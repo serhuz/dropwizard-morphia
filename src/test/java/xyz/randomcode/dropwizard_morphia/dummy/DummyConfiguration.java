@@ -20,14 +20,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;
 import xyz.randomcode.dropwizard_morphia.UriMongoConfiguration;
 
+
 public class DummyConfiguration extends Configuration {
 
     private UriMongoConfiguration mongoConfiguration;
+
 
     @JsonProperty
     public UriMongoConfiguration getMongoConfiguration() {
         return mongoConfiguration;
     }
+
 
     @JsonProperty
     public void setMongoConfiguration(UriMongoConfiguration mongoConfiguration) {

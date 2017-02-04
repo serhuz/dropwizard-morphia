@@ -21,6 +21,7 @@ import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.Property;
 
+
 @Entity(noClassnameStored = true)
 public class DummyEntity {
 
@@ -35,17 +36,21 @@ public class DummyEntity {
         this.someString = someString;
     }
 
+
     public ObjectId getId() {
         return id;
     }
+
 
     public void setId(ObjectId id) {
         this.id = id;
     }
 
+
     public String getSomeString() {
         return someString;
     }
+
 
     public void setSomeString(String someString) {
         this.someString = someString;

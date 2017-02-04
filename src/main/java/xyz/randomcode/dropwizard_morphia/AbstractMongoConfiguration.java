@@ -25,9 +25,8 @@ import org.mongodb.morphia.Morphia;
 import org.mongodb.morphia.ValidationExtension;
 import org.mongodb.morphia.mapping.MapperOptions;
 
-import java.util.Set;
-
 import static com.google.common.base.Preconditions.checkNotNull;
+
 
 public abstract class AbstractMongoConfiguration implements MongoConfiguration {
 
@@ -37,47 +36,8 @@ public abstract class AbstractMongoConfiguration implements MongoConfiguration {
     protected boolean enableValidationExtension = false;
 
     protected Environment environment;
-    protected Set<Class> entitySet;
+    protected Morphia morphia;
 
-    @JsonProperty
-    public String getDbName() {
-        return dbName;
-    }
-
-    @JsonProperty
-    public void setDbName(String dbName) {
-        this.dbName = dbName;
-    }
-
-    @JsonProperty
-    public boolean getStoreNulls() {
-        return storeNulls;
-    }
-
-    @JsonProperty
-    public void setStoreNulls(boolean storeNulls) {
-        this.storeNulls = storeNulls;
-    }
-
-    @JsonProperty
-    public boolean getStoreEmpties() {
-        return storeEmpties;
-    }
-
-    @JsonProperty
-    public void setStoreEmpties(boolean storeEmpties) {
-        this.storeEmpties = storeEmpties;
-    }
-
-    @JsonProperty
-    public boolean getEnableValidationExtension() {
-        return enableValidationExtension;
-    }
-
-    @JsonProperty
-    public void setEnableValidationExtension(boolean enableValidationExtension) {
-        this.enableValidationExtension = enableValidationExtension;
-    }
 
     @JsonIgnore
     @Override
@@ -86,23 +46,20 @@ public abstract class AbstractMongoConfiguration implements MongoConfiguration {
         return this;
     }
 
-    @JsonIgnore
-    @Override
-    public MongoConfiguration with(Set<Class> entitySet) {
-        this.entitySet = entitySet;
-        return this;
-    }
 
     @JsonIgnore
     @Override
-    public abstract MongoClient buildClient();
+    public MongoConfiguration with(Morphia morphia) {
+        this.morphia = morphia;
+        return this;
+    }
+
 
     @JsonIgnore
     @Override
     public Datastore buildDatastore() {
         MongoClient client = buildClient();
 
-        Morphia morphia = new Morphia().map(entitySet);
         MapperOptions options = morphia.getMapper().getOptions();
         options.setStoreNulls(getStoreNulls());
         options.setStoreEmpties(getStoreEmpties());
@@ -112,5 +69,57 @@ public abstract class AbstractMongoConfiguration implements MongoConfiguration {
         }
 
         return morphia.createDatastore(client, checkNotNull(getDbName()));
+    }
+
+
+    @JsonIgnore
+    public abstract MongoClient buildClient();
+
+
+    @JsonProperty
+    public boolean getStoreNulls() {
+        return storeNulls;
+    }
+
+
+    @JsonProperty
+    public void setStoreNulls(boolean storeNulls) {
+        this.storeNulls = storeNulls;
+    }
+
+
+    @JsonProperty
+    public boolean getStoreEmpties() {
+        return storeEmpties;
+    }
+
+
+    @JsonProperty
+    public void setStoreEmpties(boolean storeEmpties) {
+        this.storeEmpties = storeEmpties;
+    }
+
+
+    @JsonProperty
+    public boolean getEnableValidationExtension() {
+        return enableValidationExtension;
+    }
+
+
+    @JsonProperty
+    public String getDbName() {
+        return dbName;
+    }
+
+
+    @JsonProperty
+    public void setDbName(String dbName) {
+        this.dbName = dbName;
+    }
+
+
+    @JsonProperty
+    public void setEnableValidationExtension(boolean enableValidationExtension) {
+        this.enableValidationExtension = enableValidationExtension;
     }
 }

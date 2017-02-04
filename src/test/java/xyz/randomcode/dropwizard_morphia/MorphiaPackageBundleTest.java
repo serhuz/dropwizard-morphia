@@ -31,14 +31,14 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 
-public class MorphiaBundleTest extends BaseBundleTest {
+public class MorphiaPackageBundleTest extends BaseBundleTest {
 
-    private static MorphiaBundle<DummyConfiguration> morphiaBundle;
+    private static MorphiaPackageBundle<DummyConfiguration> morphiaBundle;
 
 
     @BeforeClass
     public static void setUpAll() throws Exception {
-        morphiaBundle = new MorphiaBundle<DummyConfiguration>(DummyEntity.class) {
+        morphiaBundle = new MorphiaPackageBundle<DummyConfiguration>(DummyEntity.class.getPackage().getName(), false) {
             @Override
             protected MongoConfiguration getMongo(DummyConfiguration configuration) {
                 UriMongoConfiguration mongoConfiguration = new UriMongoConfiguration();

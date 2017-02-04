@@ -18,12 +18,11 @@ package xyz.randomcode.dropwizard_morphia;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.mongodb.MongoClient;
 import io.dropwizard.jackson.Discoverable;
 import io.dropwizard.setup.Environment;
 import org.mongodb.morphia.Datastore;
+import org.mongodb.morphia.Morphia;
 
-import java.util.Set;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
 @JsonSubTypes({
@@ -33,9 +32,7 @@ public interface MongoConfiguration extends Discoverable {
 
     MongoConfiguration using(Environment environment);
 
-    MongoConfiguration with(Set<Class> entitySet);
-
-    MongoClient buildClient();
+    MongoConfiguration with(Morphia morphia);
 
     Datastore buildDatastore();
 }

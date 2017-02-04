@@ -17,35 +17,46 @@
 package xyz.randomcode.dropwizard_morphia;
 
 import io.dropwizard.Configuration;
+import io.dropwizard.ConfiguredBundle;
+import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
-
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import xyz.randomcode.dropwizard_morphia.health.MongoHealthCheck;
 
 
-public abstract class MorphiaBundle<T extends Configuration> extends BaseMorphiaBundle<T> {
+public abstract class BaseMorphiaBundle<T extends Configuration> implements ConfiguredBundle<T> {
 
-    private final Set<Class> entitySet;
+    protected static final String DEFAULT_NAME = "mongo";
+    protected Datastore datastore;
+    protected Morphia morphia;
 
 
-    protected MorphiaBundle(Class<?> entity, Class<?>... entities) {
-        entitySet = new HashSet<>();
-        entitySet.add(entity);
-        entitySet.addAll(Arrays.asList(entities));
+    @Override
+    public void initialize(Bootstrap<?> bootstrap) {
     }
 
 
     @Override
     public void run(T configuration, Environment environment) throws Exception {
-        morphia = new Morphia().map(entitySet);
-
-        datastore = getMongo(configuration)
-                .using(environment)
-                .with(morphia)
-                .buildDatastore();
-
-        super.run(configuration, environment);
+        environment.healthChecks().register(getName(), new MongoHealthCheck(datastore));
     }
+
+
+    protected String getName() {
+        return DEFAULT_NAME;
+    }
+
+
+    public Datastore getDatastore() {
+        return datastore;
+    }
+
+
+    public Morphia getMorphia() {
+        return morphia;
+    }
+
+
+    protected abstract MongoConfiguration getMongo(T configuration);
 }
