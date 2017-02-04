@@ -90,6 +90,17 @@ public void run(ExampleConfiguration configuration, Environment environment) thr
 }
 ```
 
+It is also possible to create an instance of `MorphiaPackageBundle`, which accepts package name as constructor parameter.
+```java
+private static MorphiaPackageBundle<ExampleConfiguration> morphiaBundle = 
+        new MorphiaPackageBundle<ExampleConfiguration>("some.package.with.entities", false) {
+            @Override
+            protected MongoConfiguration getMongo(DummyConfiguration configuration) {
+                return configuration.getMongo();
+            }
+        };
+```
+
 ## Configuration
 Minimal configuration requires the following
 ```yaml
