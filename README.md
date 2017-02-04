@@ -47,7 +47,7 @@ Add dependency to `pom.xml`
 <dependency>
   <groupId>xyz.randomcode</groupId>
   <artifactId>dropwizard-morphia</artifactId>
-  <version>1.0.5-1</version>
+  <version>1.0.5-2</version>
 </dependency>
 ```
 
