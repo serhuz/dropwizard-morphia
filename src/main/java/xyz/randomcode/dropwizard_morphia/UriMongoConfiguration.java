@@ -27,6 +27,12 @@ import io.dropwizard.lifecycle.Managed;
 @JsonTypeName("uriConfig")
 public class UriMongoConfiguration extends AbstractMongoConfiguration {
 
+    /**
+     * A {@code mongodb://} URI.
+     * If this URI doesn't specify DB name which should be used with Morphia,
+     * specify {@link AbstractMongoConfiguration#dbName} instead.
+     * If nothing is specified exception will be thrown at runtime.
+     */
     @JsonSerialize(using = MongoClientUriSerializer.class)
     private MongoClientURI uri;
 

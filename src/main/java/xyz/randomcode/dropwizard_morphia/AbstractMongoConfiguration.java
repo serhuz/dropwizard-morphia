@@ -30,9 +30,24 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 public abstract class AbstractMongoConfiguration implements MongoConfiguration {
 
+    /**
+     * A name for db which will be used to store data
+     */
     protected String dbName;
+
+    /**
+     * Specifies whether Morphia will store null values in documents
+     */
     protected boolean storeNulls = false;
+
+    /**
+     * Specifies whether Morphia will store empty values in documents
+     */
     protected boolean storeEmpties = false;
+
+    /**
+     * Specifies whether Hibernate Validator should be set to validate entities
+     */
     protected boolean enableValidationExtension = false;
 
     protected Environment environment;
