@@ -19,6 +19,7 @@ package xyz.randomcode.dropwizard_morphia.health;
 import com.codahale.metrics.health.HealthCheck;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
+import com.mongodb.MongoException;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -28,6 +29,8 @@ import xyz.randomcode.dropwizard_morphia.BaseMongoTest;
 import xyz.randomcode.dropwizard_morphia.dummy.DummyEntity;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.when;
 
 
 public class MongoHealthCheckTest extends BaseMongoTest {
@@ -53,5 +56,17 @@ public class MongoHealthCheckTest extends BaseMongoTest {
         MongoHealthCheck healthCheck = new MongoHealthCheck(datastore);
         HealthCheck.Result result = healthCheck.check();
         assertThat(result.isHealthy()).isTrue();
+    }
+
+
+    @Test
+    public void checkUnhealthyResult() throws Exception {
+        Datastore spy = spy(datastore);
+        when(spy.getDB()).thenThrow(new MongoException("error"));
+
+        MongoHealthCheck healthCheck = new MongoHealthCheck(spy);
+        HealthCheck.Result result = healthCheck.check();
+        assertThat(result.isHealthy()).isFalse();
+        assertThat(result.getMessage()).isNotEmpty().isEqualTo("error");
     }
 }
