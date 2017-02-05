@@ -1,4 +1,4 @@
-# dropwizard-morphia [![Build Status](https://travis-ci.org/serhuz/dropwizard-morphia.svg?branch=master)](https://travis-ci.org/serhuz/dropwizard-morphia)
+# dropwizard-morphia [![Build Status](https://travis-ci.org/serhuz/dropwizard-morphia.svg?branch=master)](https://travis-ci.org/serhuz/dropwizard-morphia) [![Coverage Status](https://coveralls.io/repos/github/serhuz/dropwizard-morphia/badge.svg)](https://coveralls.io/github/serhuz/dropwizard-morphia)
 
 Morphia integration for Dropwizard
 
