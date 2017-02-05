@@ -2,6 +2,8 @@
 
 Morphia integration for Dropwizard
 
+[![Get automatic notifications about new "dropwizard-morphia" versions](https://www.bintray.com/docs/images/bintray_badge_color.png)](https://bintray.com/serhuz/maven/dropwizard-morphia?source=watch)
+
 ## Add Dependency
 
 Create `settings.xml` in your project dir
