@@ -88,7 +88,7 @@ public abstract class AbstractMongoConfiguration implements MongoConfiguration {
 
 
     @JsonIgnore
-    public abstract MongoClient buildClient();
+    protected abstract MongoClient buildClient();
 
 
     @JsonProperty

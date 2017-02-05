@@ -38,7 +38,7 @@ public class UriMongoConfiguration extends AbstractMongoConfiguration {
 
 
     @Override
-    public MongoClient buildClient() {
+    protected MongoClient buildClient() {
         String database = uri.getDatabase();
         if (database != null) setDbName(database);
 
