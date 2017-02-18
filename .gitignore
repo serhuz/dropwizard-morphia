@@ -19,6 +19,9 @@
 /.idea/misc.xml
 /.idea/modules.xml
 /.idea/vcs.xml
+/.idea/copyright/profiles_settings.xml
+/.idea/encodings.xml
+/.idea/codeStyleSettings.xml
 /dropwizard-morphia.iml
 
 # Gradle:
@@ -195,5 +198,4 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-/.idea/copyright/profiles_settings.xml
-/.idea/encodings.xml
+

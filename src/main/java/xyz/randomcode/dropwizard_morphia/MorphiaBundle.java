@@ -34,7 +34,7 @@ public abstract class MorphiaBundle<T extends Configuration> extends BaseMorphia
      * Creates new {@link MorphiaBundle}
      *
      * @param entity   a valid entity class
-     * @param entities additional entity class to be mapped
+     * @param entities additional entity classes to be mapped
      */
     protected MorphiaBundle(Class<?> entity, Class<?>... entities) {
         entitySet = new HashSet<>();
