@@ -33,7 +33,7 @@ public abstract class MorphiaPackageBundle<T extends Configuration> extends Base
      * @param packageName          name of package with {@link org.mongodb.morphia.dao.BasicDAO} entities
      * @param ignoreInvalidClasses specifies whether to ignore classes in the package that cannot be mapped
      */
-    public MorphiaPackageBundle(String packageName, boolean ignoreInvalidClasses) {
+    protected MorphiaPackageBundle(String packageName, boolean ignoreInvalidClasses) {
         this.packageName = packageName;
         this.ignoreInvalidClasses = ignoreInvalidClasses;
     }
