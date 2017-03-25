@@ -4,7 +4,7 @@
 
     <groupId>xyz.randomcode</groupId>
     <artifactId>dropwizard-morphia</artifactId>
-    <version>1.1.0-1-SNAPSHOT</version>
+    <version>1.1.0-1</version>
     <packaging>jar</packaging>
 
     <developers>
@@ -33,7 +33,7 @@
         <url>https://github.com/serhuz/dropwizard-morphia</url>
         <connection>scm:git:https://github.com/serhuz/dropwizard-morphia.git</connection>
         <developerConnection>scm:git:https://github.com/serhuz/dropwizard-morphia.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>v1.1.0-1</tag>
     </scm>
 
     <issueManagement>
