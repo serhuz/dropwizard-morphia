@@ -23,6 +23,7 @@
 /.idea/encodings.xml
 /.idea/codeStyleSettings.xml
 /dropwizard-morphia.iml
+/.idea/kotlinc.xml
 
 # Gradle:
 .idea/gradle.xml
@@ -198,4 +199,3 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-
