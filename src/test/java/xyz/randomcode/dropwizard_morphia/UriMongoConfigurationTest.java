@@ -48,6 +48,8 @@ public class UriMongoConfigurationTest {
                 .hasFieldOrPropertyWithValue("dbName", "test")
                 .hasFieldOrPropertyWithValue("storeNulls", false)
                 .hasFieldOrPropertyWithValue("storeEmpties", false)
+                .hasFieldOrPropertyWithValue("ignoreFinals", false)
+                .hasFieldOrPropertyWithValue("useLowerCaseCollectionNames", false)
                 .hasFieldOrPropertyWithValue("enableValidationExtension", false);
 
         assertThat(configuration.getUri().getURI()).isNotEmpty().isEqualTo("mongodb://localhost:1337");

@@ -46,6 +46,16 @@ public abstract class AbstractMongoConfiguration implements MongoConfiguration {
     protected boolean storeEmpties = false;
 
     /**
+     * Specifies whether Morphia will ignore final fields
+     */
+    protected boolean ignoreFinals = false;
+
+    /**
+     * Specifies whether Morphia should use lowercase letters for collection names
+     */
+    protected boolean useLowerCaseCollectionNames = false;
+
+    /**
      * Specifies whether Hibernate Validator should be set to validate entities
      */
     protected boolean enableValidationExtension = false;
@@ -78,6 +88,8 @@ public abstract class AbstractMongoConfiguration implements MongoConfiguration {
         MapperOptions options = morphia.getMapper().getOptions();
         options.setStoreNulls(getStoreNulls());
         options.setStoreEmpties(getStoreEmpties());
+        options.setIgnoreFinals(getIgnoreFinals());
+        options.setUseLowerCaseCollectionNames(getUseLowerCaseCollectionNames());
 
         if (getEnableValidationExtension()) {
             new ValidationExtension(morphia);
@@ -116,25 +128,42 @@ public abstract class AbstractMongoConfiguration implements MongoConfiguration {
 
 
     @JsonProperty
+    public boolean getIgnoreFinals() {
+        return ignoreFinals;
+    }
+
+    @JsonProperty
+    public void setIgnoreFinals(boolean ignoreFinals) {
+        this.ignoreFinals = ignoreFinals;
+    }
+
+    @JsonProperty
     public boolean getEnableValidationExtension() {
         return enableValidationExtension;
     }
 
+    @JsonProperty
+    public void setEnableValidationExtension(boolean enableValidationExtension) {
+        this.enableValidationExtension = enableValidationExtension;
+    }
 
     @JsonProperty
     public String getDbName() {
         return dbName;
     }
 
-
     @JsonProperty
     public void setDbName(String dbName) {
         this.dbName = dbName;
     }
 
+    @JsonProperty
+    public boolean getUseLowerCaseCollectionNames() {
+        return useLowerCaseCollectionNames;
+    }
 
     @JsonProperty
-    public void setEnableValidationExtension(boolean enableValidationExtension) {
-        this.enableValidationExtension = enableValidationExtension;
+    public void setUseLowerCaseCollectionNames(boolean useLowerCaseCollectionNames) {
+        this.useLowerCaseCollectionNames = useLowerCaseCollectionNames;
     }
 }
