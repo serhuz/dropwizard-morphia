@@ -1,4 +1,4 @@
-# dropwizard-morphia [![Build Status](https://travis-ci.org/serhuz/dropwizard-morphia.svg?branch=master)](https://travis-ci.org/serhuz/dropwizard-morphia) [![Coverage Status](https://coveralls.io/repos/github/serhuz/dropwizard-morphia/badge.svg)](https://coveralls.io/github/serhuz/dropwizard-morphia)
+# dropwizard-morphia [![Build Status](https://travis-ci.org/serhuz/dropwizard-morphia.svg?branch=master)](https://travis-ci.org/serhuz/dropwizard-morphia) [![Coverage Status](https://coveralls.io/repos/github/serhuz/dropwizard-morphia/badge.svg)](https://coveralls.io/github/serhuz/dropwizard-morphia)  [ ![Download](https://api.bintray.com/packages/serhuz/maven/dropwizard-morphia/images/download.svg) ](https://bintray.com/serhuz/maven/dropwizard-morphia/_latestVersion)
 
 Morphia integration for Dropwizard
 
@@ -114,9 +114,11 @@ mongo:
 Currently the only available type is `uriConfig`. A `mongodb://` uri is used to connect to Mongo. `dbName` can be retrived from uri, if it is specified. Otherwise you'll have to set `dbName` inside `mongo` explicitly.
 
 Available Morhpia settings:
-- storeNulls (boolean) Enables/disable storing `null` values in Mongo
-- storeEmpties (boolean) Enables/disable storing empty values in Mongo
+- storeNulls (boolean) Enables/disables storing `null` values in Mongo
+- storeEmpties (boolean) Enables/disables storing empty values in Mongo
 - enableValidationExtension (boolean) Add Hibernate Validator interceptor to Morphia
+- ignoreFinals (boolean) Specifies whether Morphia will ignore final fields
+- useLowerCaseCollectionNames (boolean) Specifies whether Morphia should use lowercase letters for collection names
  
 ## Example
 Example app with a bit of Morphia usage is available [here](https://github.com/serhuz/dropwizard-morhia-example)
