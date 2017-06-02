@@ -1,8 +1,7 @@
-# dropwizard-morphia [![Build Status](https://travis-ci.org/serhuz/dropwizard-morphia.svg?branch=master)](https://travis-ci.org/serhuz/dropwizard-morphia) [![Coverage Status](https://coveralls.io/repos/github/serhuz/dropwizard-morphia/badge.svg)](https://coveralls.io/github/serhuz/dropwizard-morphia)  [ ![Download](https://api.bintray.com/packages/serhuz/maven/dropwizard-morphia/images/download.svg) ](https://bintray.com/serhuz/maven/dropwizard-morphia/_latestVersion)
+# dropwizard-morphia 
+[![Build Status](https://travis-ci.org/serhuz/dropwizard-morphia.svg?branch=master)](https://travis-ci.org/serhuz/dropwizard-morphia) [![Coverage Status](https://coveralls.io/repos/github/serhuz/dropwizard-morphia/badge.svg)](https://coveralls.io/github/serhuz/dropwizard-morphia)  [ ![Download](https://api.bintray.com/packages/serhuz/maven/dropwizard-morphia/images/download.svg) ](https://bintray.com/serhuz/maven/dropwizard-morphia/_latestVersion)
 
 Morphia integration for Dropwizard
-
-[![Get automatic notifications about new "dropwizard-morphia" versions](https://www.bintray.com/docs/images/bintray_badge_color.png)](https://bintray.com/serhuz/maven/dropwizard-morphia?source=watch)
 
 ## Add Dependency
 
@@ -49,7 +48,7 @@ Add dependency to `pom.xml`
 <dependency>
   <groupId>xyz.randomcode</groupId>
   <artifactId>dropwizard-morphia</artifactId>
-  <version>1.0.5-2</version>
+  <version>${some.version}</version>
 </dependency>
 ```
 
