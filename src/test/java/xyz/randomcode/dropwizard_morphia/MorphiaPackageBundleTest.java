@@ -45,6 +45,8 @@ public class MorphiaPackageBundleTest extends BaseBundleTest {
                 mongoConfiguration.setDbName("test");
                 mongoConfiguration.setStoreEmpties(false);
                 mongoConfiguration.setStoreNulls(false);
+                mongoConfiguration.setIgnoreFinals(false);
+                mongoConfiguration.setUseLowerCaseCollectionNames(false);
                 mongoConfiguration.setUri(new MongoClientURI(String.format("mongodb://localhost:%d", port)));
 
                 return mongoConfiguration;

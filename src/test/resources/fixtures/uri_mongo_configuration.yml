@@ -1,1 +1,1 @@
-{"type":"uriConfig","dbName":"test","storeNulls":false,"storeEmpties":false,"enableValidationExtension":false,"uri":"mongodb://localhost:1337"}
+{"type":"uriConfig","dbName":"test","storeNulls":false,"storeEmpties":false,"enableValidationExtension":true,"useLowerCaseCollectionNames":true,"uri":"mongodb://localhost:1337"}
